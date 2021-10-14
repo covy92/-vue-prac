@@ -50,6 +50,6 @@ export default {
   h1{
     color: red !important;
     font-size: 100px;
-    
+     
   }
 </style>
