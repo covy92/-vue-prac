@@ -62,18 +62,24 @@
   </h1> -->
 
   <!-- 이벤트 핸들링 수식어 -->
-  <a href="https://naver.com"
+  <!-- <a href="https://naver.com"
   target="_blank"
   @click.once="handler">
   naver
-  </a>
+  </a> -->
 
 
   <!-- 폼 입력 바인딩은 V-model을 사용 -->
-  <!-- v-model.lazy  -->
+  <!-- v-model.lazy  -->  
+
+  <!-- 컴포지션api -->
+  <div @click="increase">
+    {{ count }}
+  </div>
 </template>
 
 <script>
+  
   // import Fruit from '~/components/Fruit'
   // export default {
   //   components:{
@@ -94,7 +100,7 @@
   // }
 
   // 템플릿 문법
-
+  
   // export default {
   //   data() {
   //     return {
@@ -121,12 +127,29 @@
   //   }
   // }
 
+
+  //컴포지션 api
+
+  import {ref} from 'vue'
+
   export default {
-    methods:{   // 이벤트 수식어
-      handler(){
-        console.log('ABC')
+    setup(){
+      let count = ref(0)
+      function increase(){
+        count.value +=1
+      }
+      return {
+        count,
+        increase
       }
     }
+
+
+    // methods:{   // 이벤트 수식어
+    //   handler(){
+    //     console.log('ABC')
+    //   }
+    // }
 
 
 
